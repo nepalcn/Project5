@@ -232,6 +232,7 @@
         console.log('data',response);
         
         let orderId = response.orderId;
+        sessionStorage.setItem("orderId", orderId);
 
         location.replace(`confirmation.html?orderid=${orderId}`);
 

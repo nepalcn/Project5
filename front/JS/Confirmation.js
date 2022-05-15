@@ -1,5 +1,5 @@
 
     console.log('confirmation')
-    let odrId = document.getElementById('orderId');
-    orderId.innerHTML = sessionStorage.getItem('odrId')
+    let orderId = document.getElementById('orderId');
+    orderId.innerHTML = sessionStorage.getItem('orderId')
     
