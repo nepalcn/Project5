@@ -36,7 +36,7 @@
                 }
                 catch (error) {
                   //error msg displayed if request fail
-                  document.querySelector('items').innerHTML = error;
+                  document.querySelector('items').innerText = error;
                 }
               }
               init();
@@ -46,13 +46,13 @@
                 console.log('singleproduct')
 
                 const productName = document.getElementById('title');
-                productName.innerHTML = data.name;
+                productName.innerText = data.name;
 
                 const price = document.getElementById('price');
-                price.innerHTML = '$' + data.price;
+                price.innerText = '$' + data.price;
 
                 const description = document.getElementById('description');
-                description.innerHTML = data.description;
+                description.innerText = data.description;
 
 
                 const select = document.getElementById('colors');

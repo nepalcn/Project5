@@ -34,13 +34,13 @@
           let priceNumber = parseInt(price);
 
           //get cartItem value
-          nameCell.innerHTML = cart[i].name;
-          colorsCell.innerHTML = cart[i].colors;
-          priceCell.innerHTML = ' $' + " " + (priceNumber * cart[i].quantity) + '.00';
+          nameCell.innerText = cart[i].name;
+          colorsCell.innerText = cart[i].colors;
+          priceCell.innerText = ' $' + " " + (priceNumber * cart[i].quantity) + '.00';
           var btnRemove = document.createElement('button');
           btnRemove.className = 'btn-del';
           btnRemove.addEventListener('click', removeItem)
-          btnRemove.innerHTML = 'x';
+          btnRemove.innerText = 'x';
 
 
           btnRemoveCell.append(btnRemove);
@@ -123,7 +123,7 @@
 
       if (total) {
         console.log('total')
-        total.innerHTML = totalCartPrice + '.00';
+        total.innerText = totalCartPrice + '.00';
 
       }
     }
@@ -232,7 +232,7 @@
         console.log('data',response);
         
         let orderId = response.orderId;
-        sessionStorage.setItem("orderId", orderId);
+        
 
         location.replace(`confirmation.html?orderid=${orderId}`);
 
