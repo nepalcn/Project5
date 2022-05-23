@@ -66,6 +66,7 @@
 
       addCart()
     }
+    // remove item from the cart page and local storage when click x btn
     function removeItem(event) {
       console.log('removed')
       var title = event.currentTarget.parentElement.nextElementSibling.innerText;
@@ -234,7 +235,7 @@
         
         let orderId = response.orderId;
         
-
+        // show id in the url
         location.replace(`confirmation.html?orderid=${orderId}`);
 
       }).catch((error) => {
