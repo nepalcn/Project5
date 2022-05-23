@@ -1,11 +1,11 @@
-
+//create function
     function init() {
       console.log('bye')
       showCartItems();
       calculateTotalCartPrice();
     }
 
-
+//show cart item in the page
     function showCartItems() {
       const cartItems = document.getElementById("cart__items");
       let cart = JSON.parse(localStorage.getItem('cart'));
@@ -37,22 +37,23 @@
           nameCell.innerText = cart[i].name;
           colorsCell.innerText = cart[i].colors;
           priceCell.innerText = ' $' + " " + (priceNumber * cart[i].quantity) + '.00';
+
+          //create remove btn and add event listener
           var btnRemove = document.createElement('button');
           btnRemove.className = 'btn-del';
           btnRemove.addEventListener('click', removeItem)
           btnRemove.innerText = 'x';
 
-
           btnRemoveCell.append(btnRemove);
+          //create quantity input field  and add event listener
           var quantityInput = document.createElement('input');
           quantityInput.type = 'number';
           quantityInput.min = 1;
+          quantityInput.value =cart[i].quantity;
           quantityInput.id = 'quantity';
           quantityInput.className = 'quantity';
           quantityInput.addEventListener('change', changeQuantity
           );
-
-
           quantity.append(quantityInput);
 
 
