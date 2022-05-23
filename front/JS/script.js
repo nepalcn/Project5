@@ -26,14 +26,13 @@ createCard = (response) => {
   const section = document.querySelector("items");
 
   for (let i in response) {
-    //create elements for the card
+    //create elements for the card and the value
     const card = document.createElement("article");
     const img = response[i].imageUrl;
     const newImg = document.createElement("img");
     const newa = document.createElement("a");
 
     console.log(response[i])
-    //id is passed in querystring
     newa.setAttribute('href', `/front/html/product.html?id=${response[i]._id}`)
     newa.textContent = 'View Detail';
     newImg.classList.add('Img');
@@ -41,18 +40,15 @@ createCard = (response) => {
     newImg.setAttribute('alt', response[i].altTxt)
     newImg.setAttribute('src', img);
 
-    //item description
     const name = document.createElement('h3');
     name.innerText = response[i].name;
     const description = document.createElement('p');
     description.innerText = response[i].description;
     const price = document.createElement('p');
-
     price.innerText = '$' + response[i].price;
+
     //append the elements to the card
-
     card.append(name, description, price, newImg, newa);
-
     items.appendChild(card);
 
   }
@@ -68,7 +64,7 @@ init = async () => {
   }
   catch (error) {
     //error msg displayed if request fail
-    document.querySelector('items').innerHTML =  error ;
+    document.querySelector('items').innerText =  error ;
   }
 }
 init();

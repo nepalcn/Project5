@@ -4,7 +4,7 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 
 console.log('product')
-//fetch single product by id
+//makeRequest single product by id
 makeRequest = () => {
   return new Promise((resolve, reject) => {
     console.log('hi')
@@ -27,7 +27,7 @@ makeRequest = () => {
 }
 init = async () => {
   try {
-    //call makerequest for api request and wait response
+    //call makerequest for api and wait response
     const requestPromise = makeRequest();
     const response = await requestPromise;
     showproduct(response)
@@ -41,10 +41,10 @@ init = async () => {
 }
 init();
 
-
+//show product in the page
 function showproduct(data) {
   console.log('singleproduct')
-
+//get element and their value
   const productName = document.getElementById('title');
   productName.innerText = data.name;
 
@@ -54,12 +54,10 @@ function showproduct(data) {
   const description = document.getElementById('description');
   description.innerText = data.description;
 
-
+//product colors
   const select = document.getElementById('colors');
   for (let data2 of data.colors) {
     console.log(data2);
-
-
     const newOption = document.createElement('option');
     const optionText = document.createTextNode(data2);
     // set option text
@@ -70,7 +68,7 @@ function showproduct(data) {
 
   }
 }
-
+//add to cart
 let cart = document.getElementById("addToCart");
 console.log('cart', cart)
 cart.addEventListener('click', () => {
@@ -92,6 +90,7 @@ cart.addEventListener('click', () => {
   };
 
   console.log('hi')
+  //add quantity if the product color and id is same
   for (var i = 0; i < cart.length; i++) {
     if (product.id == cart[i].id && product.colors == cart[i].colors) {
 
@@ -103,7 +102,7 @@ cart.addEventListener('click', () => {
   }
   cart.push(product);
 
-
+//products store in the local storage
   window.localStorage.setItem("cart", JSON.stringify(cart));
   alert('sucessfully added to cart')
 
