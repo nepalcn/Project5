@@ -200,7 +200,6 @@ function makeRequest(data) {
 
 };
 
-
 //validation firstName
 firstName.addEventListener('blur', () => {
   const regName = /^[a-zA-Z]+$/;
